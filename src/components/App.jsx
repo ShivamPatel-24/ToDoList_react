@@ -17,6 +17,14 @@ function App() {
     });
     setItem("");
   }
+  
+  function deleteItem(id) {
+    addItem((prevVal) => {
+      return prevVal.filter((item, index) => {
+        return index !== id
+      })
+    });
+  }
 
   return (
     <div className="container">
@@ -31,11 +39,15 @@ function App() {
       </div>
       <div>
         <ul>
-          {itemArr.map(i => 
-          <TodoItem item={i}/>
+          {itemArr.map((i, idx) => 
+          <TodoItem 
+            item={i}
+            onCheck={deleteItem}
+            id = {idx}
+            key = {idx}
+          />
         )}
-        </ul>
-        
+        </ul>      
       </div>
       
     </div>

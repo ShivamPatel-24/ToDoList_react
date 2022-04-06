@@ -29,7 +29,15 @@ function App() {
           <span>Add</span>
         </button>
       </div>
-      <TodoItem itemArr={itemArr}/>
+      <div>
+        <ul>
+          {itemArr.map(i => 
+          <TodoItem item={i}/>
+        )}
+        </ul>
+        
+      </div>
+      
     </div>
   );
 }

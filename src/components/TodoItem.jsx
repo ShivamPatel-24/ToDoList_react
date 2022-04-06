@@ -1,12 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 export default function TodoItem(props) {
+
+    const[todo, setTodo] = useState(false);
+
+    function handleTodo(){
+        setTodo(!todo);
+    }
+
     return (
-    <div>
-        <ul>
-        {props.itemArr.map(item => <li>{item}</li>)}
-        </ul>
-    </div>
+        <li style={{textDecoration: todo ? 'line-through' : 'none'}} 
+            onClick={handleTodo}>{props.item}
+        </li>
   );
 }
 

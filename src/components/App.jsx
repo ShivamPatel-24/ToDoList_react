@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import TodoItem from "./TodoItem";
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
     addItem((prevVal) => {
       return [...prevVal, item];
     });
+    setItem("");
   }
 
   return (
@@ -27,11 +29,7 @@ function App() {
           <span>Add</span>
         </button>
       </div>
-      <div>
-        <ul>
-          {itemArr.map(item => <li>{item}</li>)}
-        </ul>
-      </div>
+      <TodoItem itemArr={itemArr}/>
     </div>
   );
 }
